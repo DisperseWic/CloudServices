@@ -1,0 +1,13 @@
+Гайд (https://mcs.mail.ru/help/examples/vision-python)
+Распознавание лиц на фото
+
+sudo python examples/python/smarty.py -p ./examples/friends1.jpeg -u 'https://smarty.mail.ru/api/v1/persons/recognize?oauth_provider=mcs&oauth_token=2QNB494hUtPjEnL5Yw8Ru8hroCFk6A51R5gAh226jKYmrfJgDu' -v --meta '{"space":"1", "create_new":false}'
+
+Добавить человека в базу
+
+sudo python examples/python/smarty.py -p ./examples/rachel-green.jpeg -u 'https://smarty.mail.ru/api/v1/persons/set?oauth_provider=mcs&oauth_token=2QNB494hUtPjEnL5Yw8Ru8hroCFk6A51R5gAh226jKYmrfJgDu' -v --meta '{"space":"1", "images":[{"person_id":27}]}'
+
+Удалить из базы 
+
+
+sudo python examples/python/smarty.py -u 'https://smarty.mail.ru/api/v1/persons/delete?oauth_provider=mcs&oauth_token=2QNB494hUtPjEnL5Yw8Ru8hroCFk6A51R5gAh226jKYmrfJgDu' -v --meta '{"space":"1", "images":[{"name":"myname", "person_id":27}]}'
