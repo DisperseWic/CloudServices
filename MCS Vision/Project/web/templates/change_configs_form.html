@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+        <title>Change configs</title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="navbar-brand">Recognize people</div>
+        </nav>
+        <main class="container mt-5">
+            <div class="row">
+                <div class="col-md-8 order-md-1">
+                    <h2 class="mb-3">Change configs</h2>
+
+                    <form class="needs-validation" method="post" action="save_configs">
+                        <div class="row">
+                            <div class="col-md-10 mb-3">
+                                <label for="token">Token</label>
+                                <input class="form-control" id="token" type="text" name="token" value={{configs.token}} required>
+                                <label for="space_id">Space ID</label>
+                                <input class="form-control"  id="space_id" type="text" name="space_id" value={{configs.space_id}} required>
+                            </div>
+                        </div>
+                        <button class= "btn btn-primary my-2" type="submit">Apply</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </body>
+
+</html>

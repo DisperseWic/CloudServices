@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+        <title>Select photo</title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="navbar-brand">Recognize people</div>
+        </nav>
+        <main class="container mt-5">
+            <div class="row">
+                <div class="col-md-8 order-md-1">
+                    <h2 class="mb-3">Select photo</h2>
+
+                    <form class="needs-validation" method="post" action="{{target_url}}" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-10 mb-3">
+                                <input class="form-control-file" type="file" name="photo" multiple accept="image/*,image/jpeg">
+                            </div>
+                        </div>
+                        <button class= "btn btn-primary my-2" type="submit">Apply</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </body>
+
+</html>

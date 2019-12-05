@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+        <title>Recognize Peoples</title>
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="navbar-brand">Recognize people</div>
+        </nav>
+
+        <main role="main" class="container mt-5">
+            <div class="jumbotron">
+                <h2 class="mb-3">Configs</h2>
+                <div><b>Token:</b> {{configs.token}}</div>
+                <div><b>Space id:</b> {{configs.space_id}}</div>
+                <a class="btn btn-primary my-2" href="/change_configs">Change</a>
+            </div>
+
+            <div class="mb-5">
+                <h2 class="mb-3">Selected image</h2>
+
+                <div class="mb-2">
+                    {% if configs.selected_image is not none %}
+                        <img src="{{configs.selected_image}}">
+                    {% else %}
+                        {% if configs.base_image is not none %}
+                            <img src="{{configs.base_image}}">
+                        {% else %}
+                            <b>No selected image</b>
+                        {%endif %}
+                    {%endif %}
+                </div>
+
+                <div>
+                    <a class= "btn btn-primary my-2" href="/select_image">Select image</a>
+                    <a class= "btn btn-primary my-2" href="/recognize">Recognize peoples</a>
+                </div>
+            </div>
+
+            <div class="mb-5">
+                <h2 class="mb-3">Stored persons</h2>
+                <div class="mb-3">
+                    <a class= "btn btn-primary my-2" href="/select_person">Add person</a>
+                    <a class= "btn btn-primary my-2" href="/clear_space">Clear space</a>
+                </div>
+
+                <div class="row">
+                    {% for person in stored_persons %}
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+
+                                <div class="card-body">
+                                    <b>Person id: {{person.id}}</b>
+                                </div>
+
+                                <div>
+                                    <img class="bd-placeholder-img card-img-top" src="{{person.img_path}}">
+                                </div>
+
+                                <div class="card-footer">
+                                    <div>UUID: {{person.uuid}}</div>
+                                    <a class= "btn btn-primary my-2" href="/remove_person/{{person.uuid}}">Remove</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </main>
+    </body>
+
+</html>
