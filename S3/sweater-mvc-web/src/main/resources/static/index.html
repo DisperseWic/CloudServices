@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="styles/styles.css" rel="stylesheet">
+    <title>Disperse S3</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="content">
+        <div class="content__creating">
+            <input type="button" class="content__field" value="Добавить Bucket" @click="addBucket">
+            <input type="text" class="content__value" v-model="bucketName">
+        </div>
+
+        <div class="content__bucket_list_title">Список корзин:</div>
+        <div class="content__bucket_list">
+            <div class="bucket_list_item" v-for="(bucket, idx) in buckets" :key="idx">
+                <div class="row">
+                    <div class="item_point"></div>
+                    <div class="item_name">{{bucket.name}}</div>
+                    <input type="file" class="item_add_object" @change="addObject(bucket.name)"/>
+                    <div class="item_delete" @click="deleteBucket(bucket.name)">X</div>
+                </div>
+                <div class="row">
+                    <div class="item_objects">
+                        <div class="item_object row" v-for="(object, objIdx) in bucket.objects" :key="objIdx">
+                            <div>{{object.key}}</div>
+                            <div class="item_delete" @click="deleteObject(bucket.name, object.key)">delete</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./js/script.js"></script>
+</body>
+</html>

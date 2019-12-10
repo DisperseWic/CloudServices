@@ -1,0 +1,37 @@
+.bucket_list_item {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.bucket_list_item .row .item_point {
+  width: 10px;
+  border-radius: 50%;
+  border: none;
+  background: aquamarine;
+  margin-top: 5px;
+}
+
+.bucket_list_item .row .item_delete {
+  color: red;
+}
+
+.item_object {
+  margin: 5px 15px;
+}
+
+.bucket_list_item .row .item_add_object {
+  color: green;
+}
+
+.bucket_list_item .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row * {
+  padding: 3px;
+}
+
